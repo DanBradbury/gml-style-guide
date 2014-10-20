@@ -51,3 +51,48 @@ map_step();
 map_draw();
 ```
 
+## Syntax
+* Conitionals (`if/else/else if`) use the same block structure. The `{` & `}`  are used to explicitly state the enclosing body.
+```c
+// bad
+if(test_truthy)
+  {
+  ...
+  }
+
+// better but still bad - extra line mucks readability
+if(truthiness)
+{
+  ...
+}
+
+// good
+if(truthy){
+  ...
+}
+```
+* Use `!` instead of `==false`
+```c
+// bad
+if(JUMPING==false){
+  ...
+}
+
+// good
+if(!JUMPING){
+  ...
+}
+```
+* In a similar vain never use `==true`
+```c
+// bad
+if(FALLING==true){
+  ...
+}
+
+// good
+if(FALLING){
+  ...
+}
+```
+
