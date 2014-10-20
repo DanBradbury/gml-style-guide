@@ -6,6 +6,13 @@ The guide is seperated into sections of related rules. Each added rule should ha
 
 The basic format is based on bbatsov's ruby-style-guide and is meant to serve as a growing document to reflect the GM workflow.
 
+## Table of Contents
+* [Source Code Layout](#source-code-layout)
+* [Project Structure](#project-structure)
+* [Syntax](#syntax)
+* [Naming](#naming)
+* [Comments](#comments)
+
 ## Source Code Layout
 > Nearly everybody is convinced that every style but their own is
 > ugly and unreadable. Leave out the "but their own" and they're
@@ -13,24 +20,24 @@ The basic format is based on bbatsov's ruby-style-guide and is meant to serve as
 > -- Jerry Coffin (on indentation)
 
 * Use two **spaces** per indentation level (soft tabs). No hard tabs.
-```gml
-/* bad - four spaces */
+```c
+// bad - four spaces
 if(something){
     do_things();
 }
 
-/* good */
+// good
 if(something){
   do_things();
 }
 ```
 
 * Don't use `;` to seperate statements and expressions. Use one expression per  line.
-```gml
-/* bad */
+```c
+// bad
 image_index=0; image_angle+=2;
 
-/* good */
+// good
 update_image();
 handle_gravity();
 ```
@@ -42,7 +49,7 @@ We do this to allow programmers to use the editor of their choice and have and b
 * Example:
 
 **o_map**
-```gml
+```c
 /* create event */
 map_create();
 /* step event */
@@ -95,4 +102,19 @@ if(FALLING){
   ...
 }
 ```
+
+## Naming
+* **objects** should be named with `o_` prefix
+```c
+// bad
+obj_box
+object_box
+box
+
+// good
+o_box
+```
+* **scripts** created to hold code for objects should be named with  `objectName_eventName`
+*With an object named `o_player` our script for create woul be `player_create`
+## Comments
 
