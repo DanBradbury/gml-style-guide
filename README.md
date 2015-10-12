@@ -114,6 +114,29 @@ box
 // good
 obj_box
 ```
+
+* **sprites** should be named with `spr_` prefix
+```c
+// bad
+s_box
+sprite_box
+box
+
+// good
+spr_box
+```
+
+* **backgrounds** should be named with `bg_` prefix
+```c
+// bad
+b_box
+background_box
+box
+
+// good
+bg_box
+```
+
 * **scripts** created to hold code for objects should be named with  `objectName_eventName`
 *With an object named `obj_player` our script for create woul be `player_create`
 ## Comments
