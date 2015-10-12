@@ -104,17 +104,17 @@ if(FALLING){
 ```
 
 ## Naming
-* **objects** should be named with `o_` prefix
+* **objects** should be named with `obj_` prefix
 ```c
 // bad
-obj_box
+o_box
 object_box
 box
 
 // good
-o_box
+obj_box
 ```
 * **scripts** created to hold code for objects should be named with  `objectName_eventName`
-*With an object named `o_player` our script for create woul be `player_create`
+*With an object named `obj_player` our script for create woul be `player_create`
 ## Comments
 
