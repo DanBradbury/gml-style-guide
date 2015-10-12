@@ -138,6 +138,6 @@ bg_box
 ```
 
 * **scripts** created to hold code for objects should be named with  `objectName_eventName`
-*With an object named `obj_player` our script for create woul be `player_create`
+*With an object named `obj_player` our script for create would be `player_create`
 ## Comments
 
