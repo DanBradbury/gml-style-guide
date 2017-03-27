@@ -104,17 +104,40 @@ if(FALLING){
 ```
 
 ## Naming
-* **objects** should be named with `o_` prefix
+* **objects** should be named with `obj_` prefix
 ```c
 // bad
-obj_box
+o_box
 object_box
 box
 
 // good
-o_box
+obj_box
 ```
+
+* **sprites** should be named with `spr_` prefix
+```c
+// bad
+s_box
+sprite_box
+box
+
+// good
+spr_box
+```
+
+* **backgrounds** should be named with `bg_` prefix
+```c
+// bad
+b_box
+background_box
+box
+
+// good
+bg_box
+```
+
 * **scripts** created to hold code for objects should be named with  `objectName_eventName`
-*With an object named `o_player` our script for create woul be `player_create`
+*With an object named `obj_player` our script for create would be `player_create`
 ## Comments
 
