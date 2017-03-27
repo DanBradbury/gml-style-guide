@@ -22,17 +22,17 @@ The basic format is based on bbatsov's ruby-style-guide and is meant to serve as
 * Use two **spaces** per indentation level (soft tabs). No hard tabs.
 ```c
 // bad - four spaces
-if(something){
+if(something) {
     do_things();
 }
 
 // good
-if(something){
+if(something) {
   do_things();
 }
 ```
 
-* Don't use `;` to seperate statements and expressions. Use one expression per  line.
+* Don't use `;` to seperate statements and expressions. Use one expression per line.
 ```c
 // bad
 image_index=0; image_angle+=2;
@@ -48,7 +48,7 @@ We do this to allow programmers to use the editor of their choice and have and b
 
 * Example:
 
-**o_map**
+**obj_map**
 ```c
 /* create event */
 map_create();
@@ -73,32 +73,32 @@ if(truthiness)
   ...
 }
 
-// good
-if(truthy){
+// good (space after condition is preference)
+if(truthy) {
   ...
 }
 ```
 * Use `!` instead of `==false`
 ```c
 // bad
-if(JUMPING==false){
+if(JUMPING == false) {
   ...
 }
 
 // good
-if(!JUMPING){
+if(!JUMPING) {
   ...
 }
 ```
 * In a similar vain never use `==true`
 ```c
 // bad
-if(FALLING==true){
+if(FALLING == true) {
   ...
 }
 
 // good
-if(FALLING){
+if(FALLING) {
   ...
 }
 ```
@@ -138,6 +138,19 @@ bg_box
 ```
 
 * **scripts** created to hold code for objects should be named with  `objectName_eventName`
-*With an object named `obj_player` our script for create would be `player_create`
-## Comments
+* With an object named `obj_player` our script for create would be `player_create`
 
+## Comments
+> Good code is its own best documentation. As you're about to add a comment, ask yourself, "How can I improve the code so that this comment isn't needed?" Improve the code and then document it to make it even clearer.
+> -- Steve McConnell
+
+* Write self-documenting code!!
+* Write comments in English
+* Use one space between the leading `//` and the comment text
+* Avoid superfulous comments
+```c
+// bad
+counter += 1 // increment counter by 1
+```
+* Keep comments up-to-date. An outdated comment is worse than no comment at all
+* Avoid writing comments to explain bad code. Refactor the code to make it self-explanatory
