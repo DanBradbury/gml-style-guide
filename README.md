@@ -42,7 +42,7 @@ update_image();
 handle_gravity();
 ```
 
-## Project Strucutre
+## Project Structure
 All objects should have their code moved into individual scripts.
 We do this to allow programmers to use the editor of their choice and have and be able to see all the code directly in the associated gml script files.
 
@@ -104,6 +104,31 @@ if(FALLING) {
 ```
 
 ## Naming
+* **variables** should be all lowercase, with underscores between words. 
+```c
+// bad
+tableName
+
+// better
+tablename
+
+// best
+table_name
+```
+
+* **macros** whose value is fixed for the duration of the program, should be named using all caps.
+```c
+// bad
+out_of_memory = 1
+
+// better
+OUTOFMEMORY = 1
+
+// best
+OUT_OF_MEMORY = 1
+```
+
+
 * **objects** should be named with `obj_` prefix
 ```c
 // bad
@@ -139,6 +164,21 @@ bg_box
 
 * **scripts** created to hold code for objects should be named with  `objectName_eventName`
 * With an object named `obj_player` our script for create would be `player_create`
+
+* **enumerators** should be named like macros, using all caps. The enumeration name should use mixed case. 
+```c
+// bad
+enum rainbowColors {
+  red = 1,
+  blue = 2
+}
+
+// good
+enum RainbowColors {
+  RED = 1,
+  BLUE = 2
+}
+```
 
 ## Comments
 > Good code is its own best documentation. As you're about to add a comment, ask yourself, "How can I improve the code so that this comment isn't needed?" Improve the code and then document it to make it even clearer.
