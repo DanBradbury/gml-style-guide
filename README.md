@@ -81,24 +81,24 @@ if(truthy) {
 * Use `!` instead of `==false`
 ```c
 // bad
-if(JUMPING == false) {
+if(jumping == false) {
   ...
 }
 
 // good
-if(!JUMPING) {
+if(!jumping) {
   ...
 }
 ```
 * In a similar vain never use `==true`
 ```c
 // bad
-if(FALLING == true) {
+if(falling == true) {
   ...
 }
 
 // good
-if(FALLING) {
+if(falling) {
   ...
 }
 ```
@@ -115,19 +115,6 @@ tablename
 // best
 table_name
 ```
-
-* **macros** whose value is fixed for the duration of the program, should be named using all caps.
-```c
-// bad
-out_of_memory = 1
-
-// better
-OUTOFMEMORY = 1
-
-// best
-OUT_OF_MEMORY = 1
-```
-
 
 * **objects** should be named with `obj_` prefix
 ```c
@@ -162,8 +149,22 @@ box
 bg_box
 ```
 
-* **scripts** created to hold code for objects should be named with  `objectName_eventName`
+* **scripts** should be preceded with scr_ prefix followed by mixedcase naming. 
+* Scripts created to act like functions should use objectName_ instead, `objectName_eventName`
 * With an object named `obj_player` our script for create would be `player_create`
+
+
+* **macros** whose value is fixed for the duration of the program, should be named using all caps.
+```c
+// bad
+out_of_memory = 1
+
+// better
+OUTOFMEMORY = 1
+
+// best
+OUT_OF_MEMORY = 1
+```
 
 * **enumerators** should be named like macros, using all caps. The enumeration name should use mixed case. 
 ```c
