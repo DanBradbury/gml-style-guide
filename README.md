@@ -59,7 +59,7 @@ map_draw();
 ```
 
 ## Syntax
-* Conitionals (`if/else/else if`) use the same block structure. The `{` & `}`  are used to explicitly state the enclosing body.
+* **Conitionals** (`if/else/else if`) use the same block structure. The `{` & `}`  are used to explicitly state the enclosing body.
 ```c
 // bad
 if(test_truthy)
@@ -102,6 +102,20 @@ if(falling) {
   ...
 }
 ```
+
+* **Simple Operations** (i=i+1, i+=1, i++) should always use the optimal pattern.
+```c
+// bad
+i = i + 1; // should only be used for complex arithmatic that cannot be reduced to a more efficient pattern.
+
+// good
+i += 1; // best used when adding a single constant or variable other than 1 
+
+// better
+i++; // optimal when incrementing a variable by one.
+```
+* For simple operations, although they appear to produce the same effect, each instruction corresponds at a low level to a different way of interacting the the processor. 
+* The same applies for subtraction (i=i-1, i-=1, and i--);
 
 ## Naming
 * **variables** should be all lowercase, with underscores between words. 
