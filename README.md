@@ -2,13 +2,8 @@
 
 This GML Style guide recommends best practices so that GML programmers can write code that can be maintained by other real-world GML programmers. No matter how much work and love this style guide gets there is no way to reach a total agreement about all ways of solving problems.
 
-The guide is seperated into sections of related rules. Each added rule should have a rationale included behind the rule (unless it's obvious).
-
-The basic format is based on bbatsov's ruby-style-guide and is meant to serve as a growing document to reflect the GM workflow.
-
 ## Table of Contents
 * [Source Code Layout](#source-code-layout)
-* [Project Structure](#project-structure)
 * [Syntax](#syntax)
 * [Naming](#naming)
 * [Comments](#comments)
@@ -19,7 +14,8 @@ The basic format is based on bbatsov's ruby-style-guide and is meant to serve as
 > probably right... <br/>
 > -- Jerry Coffin (on indentation)
 
-* Use two **spaces** per indentation level (soft tabs). No hard tabs.
+* Use two *OR* four **spaces** per indentation level (soft tabs). No hard tabs.
+  * consistency is key so pick something and stick to it! (I prefer 2 :D)
 ```c
 // bad - four spaces
 if(something) {
@@ -30,32 +26,25 @@ if(something) {
 if(something) {
   do_things();
 }
+
+// also good
+if(something) {
+    do_things();
+}
 ```
 
-* Don't use `;` to seperate statements and expressions. Use one expression per line.
+* Don't use `;` to seperate statements and expressions that convey have larger implications than setters. Use one expression per line.
+  * if actions are logically grouped use proper spacing (ie. `a=1; b=2; c=3;`)
 ```c
 // bad
-image_index=0; image_angle+=2;
+update_image(); handle_gravity();
 
 // good
 update_image();
 handle_gravity();
-```
 
-## Project Structure
-All objects should have their code moved into individual scripts.
-We do this to allow programmers to use the editor of their choice and have and be able to see all the code directly in the associated gml script files.
-
-* Example:
-
-**obj_map**
-```c
-/* create event */
-map_create();
-/* step event */
-map_step();
-/* draw event */
-map_draw();
+// fine (simple actions that are logically grouped)
+image_index=0; image_angle+=2;
 ```
 
 ## Syntax
@@ -67,7 +56,7 @@ if(test_truthy)
   ...
   }
 
-// better but still bad - extra line mucks readability
+// good (not my ideal but readible)
 if(truthiness)
 {
   ...
@@ -78,7 +67,7 @@ if(truthy) {
   ...
 }
 ```
-* Use `!` instead of `==false`
+* Use `!` instead of `== false`
 ```c
 // bad
 if(jumping == false) {
@@ -90,7 +79,7 @@ if(!jumping) {
   ...
 }
 ```
-* In a similar vain never use `==true`
+* In a similar vain never use `== true`
 ```c
 // bad
 if(falling == true) {
@@ -121,10 +110,10 @@ i++; // optimal when incrementing a variable by one.
 * **variables** should be all lowercase, with underscores between words. 
 ```c
 // bad
-tableName
-
-// better
 tablename
+
+// better, but bad (leads to tablename typos)
+tableName
 
 // best
 table_name
@@ -163,9 +152,8 @@ box
 bg_box
 ```
 
-* **scripts** should be preceded with scr_ prefix followed by mixedcase naming. 
-* Scripts created to act like functions should use objectName_ instead, `objectName_eventName`
-* With an object named `obj_player` our script for create would be `player_create`
+* **scripts** should be preceded with scr_ prefix followed by mixedcase naming
+  * In many cases you might want helper functions like `pack` to be a script. This is perfectly fine as long as an appropriate comment is added to the file
 
 
 * **macros** whose value is fixed for the duration of the program, should be named using all caps.
