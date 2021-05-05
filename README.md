@@ -119,6 +119,15 @@ tableName
 table_name
 ```
 
+* **local variables** can be identified with a leading underscore.
+```
+// instance variable
+instance_variable_name
+
+// local variable
+_local_variable_name
+```
+
 * **objects** should be named with `obj_` prefix
 ```c
 // bad
